@@ -4,6 +4,6 @@
 
 ## Delete the deployment volumes:
 
-With this command you will kill al the docker containers and delete all the volumes associated to a deployment.
+With this command you will kill all the docker containers and delete all the volumes associated to a deployment.
 
 ```$ docker-compose down -v```
