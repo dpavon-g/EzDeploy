@@ -10,6 +10,8 @@ services:
       - ./flaskApp:/app
     depends_on:
       - db
+    networks:
+      - mynetwork
 
   db:
     image: mariadb
@@ -22,5 +24,30 @@ services:
       - data:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - mynetwork
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.2
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: 172.19.0.2  # Cambié a la dirección IP del contenedor de MariaDB
+      # PMA_USER: user
+      # PMA_PASSWORD: password
+      PMA_PORTS: 3306
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+
 volumes:
   data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
