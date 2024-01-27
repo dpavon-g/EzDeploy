@@ -33,9 +33,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
-      PMA_HOST: 172.19.0.2  # Cambié a la dirección IP del contenedor de MariaDB
-      # PMA_USER: user
-      # PMA_PASSWORD: password
+      PMA_HOST: 172.19.0.2
       PMA_PORTS: 3306
     ports:
       - "8080:80"
