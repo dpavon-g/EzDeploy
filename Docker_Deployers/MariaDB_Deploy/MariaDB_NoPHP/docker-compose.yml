@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      mynetwork:
+        ipv4_address: 172.30.0.4
+
+volumes:
+  data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
