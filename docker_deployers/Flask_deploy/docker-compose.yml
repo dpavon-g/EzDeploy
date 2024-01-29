@@ -1,0 +1,22 @@
+version: '3'
+services:
+  flask-app:
+    build:
+      context: ../../flaskApp
+      dockerfile: ./Dockerfile/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../../flaskApp:/app
+    networks:
+      - mynetwork
+
+volumes:
+  data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
