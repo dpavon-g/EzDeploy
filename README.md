@@ -22,6 +22,10 @@ $ bash EzDeploy.sh
 
 1. Docker
 
+## About Flask:
+
+EzDeploy The tool generates a local data volume, so the changes you make in your flask environment will be reflected instantly and you will only have to F5 on the web to see them. If you want to change this, just delete the volume in docker-compose and remove debug mode in flask.
+
 ## Extra information:
 Inside the *./docker_Deployers* folder you have all the docker-compose files. If you want to deploy your environment faster you can execute the next command inside its folder.
 ```
