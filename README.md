@@ -9,7 +9,7 @@
 
 ### Deployment tool for dockerized environments focused on software development efficiency
 
-This tool has been developed for developers who need to test ideas quickly and do not want to waste time creating a new environment configuration every time.
+EzDeploy has been developed for developers who need to test ideas quickly and do not want to waste time creating a new environment configuration every time. Feel free to use it in any development environment you need, such as hackathons or proofs of concept.
 
 ## How to use:
 On linux execute:
@@ -24,7 +24,7 @@ $ bash EzDeploy.sh
 
 ## About Flask:
 
-EzDeploy The tool generates a local data volume, so the changes you make in your flask environment will be reflected instantly and you will only have to F5 on the web to see them. If you want to change this, just delete the volume in docker-compose and remove debug mode in flask.
+EzDeploy generates a local data volume, so the changes you make in your flask environment will be reflected instantly and you will only have to F5 on the web to see them. If you want to change this, just delete the volume in docker-compose and remove debug mode in flask.
 
 ## Extra information:
 Inside the *./docker_Deployers* folder you have all the docker-compose files. If you want to deploy your environment faster you can execute the next command inside its folder.
