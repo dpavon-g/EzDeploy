@@ -26,6 +26,10 @@ $ bash EzDeploy.sh
 
 EzDeploy generates a local data volume, so the changes you make in your flask environment will be reflected instantly and you will only have to F5 on the web to see them. If you want to change this, just delete the volume in docker-compose and remove debug mode in flask.
 
+### How to develop in flask environment?
+
+Once the environment is deployed, all you have to do is use the `./flaskapp` folder as if it were your usual flask environment.
+
 ## Extra information:
 Inside the *./docker_Deployers* folder you have all the docker-compose files. If you want to deploy your environment faster you can execute the next command inside its folder.
 ```
