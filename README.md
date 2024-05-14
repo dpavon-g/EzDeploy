@@ -14,7 +14,7 @@ EzDeploy has been developed for developers who need to test ideas quickly and do
 
 ## Environments:
 | Environment | Description | Available |
-| ----------- | ----------- | ------ |
+| ----------- | ----------- | :------: |
 | Flask + MariaDB + PhpMyAdmin | A complete environment where you cand have all the available deploys. | :white_check_mark: |
 | Flask | An only flask environment. | :white_check_mark: |
 | MariaDB | An only mariadb environment. | :white_check_mark: |
