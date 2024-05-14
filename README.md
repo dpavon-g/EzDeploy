@@ -13,12 +13,12 @@ EzDeploy has been developed for developers who need to test ideas quickly and do
 
 
 ## Environments:
-| Environment | Description | Status |
+| Environment | Description | Available |
 | ----------- | ----------- | ------ |
-| Flask + MariaDB + PhpMyAdmin | A complete environment where you cand have all the available deploys. | Developed :white_check_mark: |
-| Flask | An only flask environment. | Developed :white_check_mark: |
-| MariaDB | An only mariadb environment. | Developed :white_check_mark: |
-| Blockchain | A local testnet of blockchain where you can test your smartcontracts and your developments. | On going |
+| Flask + MariaDB + PhpMyAdmin | A complete environment where you cand have all the available deploys. | :white_check_mark: |
+| Flask | An only flask environment. | :white_check_mark: |
+| MariaDB | An only mariadb environment. | :white_check_mark: |
+| Blockchain | A local testnet of blockchain where you can test your smartcontracts and your developments. | :x: |
 ## How to use:
 On linux execute:
 
