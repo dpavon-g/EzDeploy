@@ -12,7 +12,7 @@ show_mysql_menu() {
     echo -e "                               /_/            /____/  \n "
     echo -e "       What MariaDb environment do you want to deploy?"
     echo -e "       
-            1. Complete environment (MariaDB and phpMyAdmin).
+            1. Complete Flask Environment (MariaDB and phpMyAdmin).
             2. Only MariaDB.
             3. Back.
             4. Exit EzDeploy.
@@ -46,9 +46,10 @@ show_menu() {
     echo -e "       What do you want to deploy?"
     echo -e "       
             1. Complete environment (Flask, MariaDB and phpMyAdmin).
-            2. Flask.
-            3. MariaDb.
-            4. Exit EzDeploy.
+            2. Complete environment (Laravel, MySql and phpMyAdmin).
+            3. Flask.
+            4. MariaDb.
+            5. Exit EzDeploy.
     "
     echo -n "       Select a number: "
     read userInput
@@ -57,9 +58,12 @@ show_menu() {
         cd ./Docker_Deployers/All_Services
         docker-compose up --build
     elif [ "$userInput" -eq 2 ]; then
-        cd ./Docker_Deployers/Flask_Deploy
+        cd ./Docker_Deployers/Larave_All_Services
         docker-compose up --build
     elif [ "$userInput" -eq 3 ]; then
+        cd ./Docker_Deployers/Flask_Deploy
+        docker-compose up --build
+    elif [ "$userInput" -eq 4 ]; then
         clear
         show_mysql_menu
     else

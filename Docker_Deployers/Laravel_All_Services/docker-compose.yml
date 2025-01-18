@@ -1,0 +1,51 @@
+version: '3'
+services:
+  laravel-app:
+    build:
+      context: ../../laravelApp
+      dockerfile: ./Dockerfile/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../laravelApp:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laraveldatabase
+      MYSQL_USER: laraveluser
+      MYSQL_PASSWORD: laravelpassword
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.2
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: 172.19.0.2
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+volumes:
+  db_data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
