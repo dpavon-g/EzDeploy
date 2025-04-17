@@ -47,10 +47,11 @@ show_menu() {
     echo -e "       
             1. Complete Flask environment (Flask, MariaDB and phpMyAdmin).
             2. Complete Laravel environment (Laravel, MySql and phpMyAdmin).
-            3. Only Flask.
-            4. MariaDb.
-            5. Clear all containers and images (including volumes).
-            6. Exit EzDeploy.
+            3. React Native environment (Only for Linux).
+            4. Only Flask.
+            5. MariaDb.
+            6. Clear all containers and images (including volumes).
+            7. Exit EzDeploy.
     "
     echo -n "       Select a number: "
     read userInput
@@ -60,16 +61,19 @@ show_menu() {
         docker-compose up --build
     elif [ "$userInput" -eq 2 ]; then
         cd ./Docker_Deployers/Laravel_Deploy
-        mkdir src
         mkdir ../../laravelApp
         docker-compose up --build
     elif [ "$userInput" -eq 3 ]; then
-        cd ./Docker_Deployers/Only_Flask_Deploy
+        cd ./Docker_Deployers/React_Native_Deploy
+        mkdir ../../reactNativeApp
         docker-compose up --build
     elif [ "$userInput" -eq 4 ]; then
+        cd ./Docker_Deployers/Only_Flask_Deploy
+        docker-compose up --build
+    elif [ "$userInput" -eq 5 ]; then
         clear
         show_mysql_menu
-    elif [ "$userInput" -eq 5 ]; then
+    elif [ "$userInput" -eq 6 ]; then
         docker system prune -af
     else
         exit
