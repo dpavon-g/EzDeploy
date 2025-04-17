@@ -58,7 +58,8 @@ show_menu() {
         cd ./Docker_Deployers/All_Services
         docker-compose up --build
     elif [ "$userInput" -eq 2 ]; then
-        cd ./Docker_Deployers/Larave_All_Services
+        cd ./Docker_Deployers/Laravel_Deploy
+        mkdir src
         docker-compose up --build
     elif [ "$userInput" -eq 3 ]; then
         cd ./Docker_Deployers/Flask_Deploy
