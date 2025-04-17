@@ -45,28 +45,32 @@ show_menu() {
     echo -e "       This is the EzDeploy administrator."
     echo -e "       What do you want to deploy?"
     echo -e "       
-            1. Complete environment (Flask, MariaDB and phpMyAdmin).
-            2. Complete environment (Laravel, MySql and phpMyAdmin).
-            3. Flask.
+            1. Complete Flask environment (Flask, MariaDB and phpMyAdmin).
+            2. Complete Laravel environment (Laravel, MySql and phpMyAdmin).
+            3. Only Flask.
             4. MariaDb.
-            5. Exit EzDeploy.
+            5. Clear all containers and images (including volumes).
+            6. Exit EzDeploy.
     "
     echo -n "       Select a number: "
     read userInput
 
     if [ "$userInput" -eq 1 ]; then
-        cd ./Docker_Deployers/All_Services
+        cd ./Docker_Deployers/Flask_All_Services
         docker-compose up --build
     elif [ "$userInput" -eq 2 ]; then
         cd ./Docker_Deployers/Laravel_Deploy
         mkdir src
+        mkdir ../../laravelApp
         docker-compose up --build
     elif [ "$userInput" -eq 3 ]; then
-        cd ./Docker_Deployers/Flask_Deploy
+        cd ./Docker_Deployers/Only_Flask_Deploy
         docker-compose up --build
     elif [ "$userInput" -eq 4 ]; then
         clear
         show_mysql_menu
+    elif [ "$userInput" -eq 5 ]; then
+        docker system prune -af
     else
         exit
     fi
