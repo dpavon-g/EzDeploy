@@ -1,0 +1,51 @@
+version: '3'
+services:
+  flask-app:
+    build:
+      context: ../../flaskApp
+      dockerfile: ./Dockerfile/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../../flaskApp:/app
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      mynetwork:
+        ipv4_address: 172.19.0.2
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: 172.19.0.2
+      PMA_PORTS: 3306
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+volumes:
+  data:
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16

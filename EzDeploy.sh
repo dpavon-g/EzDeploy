@@ -46,7 +46,7 @@ show_menu() {
     echo -e "       What do you want to deploy?"
     echo -e "       
             1. Complete Flask environment (Flask, MariaDB and phpMyAdmin).
-            2. Complete Laravel environment (Laravel, MySql and phpMyAdmin).
+            2. Complete PHP Laravel environment (Laravel, MySql and phpMyAdmin).
             3. React Native environment (Only for Linux).
             4. Only Flask.
             5. MariaDb.
